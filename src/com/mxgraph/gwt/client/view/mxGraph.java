@@ -1103,7 +1103,7 @@ public class mxGraph extends mxEventSource implements HasContextMenuHandlers
 	 */
 	public native List<mxICell> removeCells(List<mxICell> cells, Boolean includeEdges) /*-{
 		var cellsJS = @com.mxgraph.gwt.client.util.WrapperUtils::unwrapList(Ljava/util/List;)(cells);
-		var includeEdgesJS = includeEdges != null ? includeEdges.@java.lang.Boolean::booleanValue() : null;
+		var includeEdgesJS = includeEdges != null ? includeEdges.@java.lang.Boolean::booleanValue()() : null;
 		var removedJS = @com.mxgraph.gwt.client.util.WrapperUtils::unwrap(Lcom/mxgraph/gwt/client/IJavaScriptWrapper;)(this).removeCells(cellsJS,
 				includeEdgesJS);
 		return @com.mxgraph.gwt.client.util.WrapperUtils::wrapList(Lcom/google/gwt/core/client/JavaScriptObject;)(removedJS);
@@ -1453,7 +1453,7 @@ public class mxGraph extends mxEventSource implements HasContextMenuHandlers
 	 * @return
 	 */
 	public native mxPoint getPointForEvent(NativeEvent event, Boolean addOffset) /*-{
-		var addOffsetJS = addOffset != null ? addOffset.@java.lang.Boolean::booleanValue() : null;
+		var addOffsetJS = addOffset != null ? addOffset.@java.lang.Boolean::booleanValue()() : null;
 		var pointJS = @com.mxgraph.gwt.client.util.WrapperUtils::unwrap(Lcom/mxgraph/gwt/client/IJavaScriptWrapper;)(this).getPointForEvent(event, addOffsetJS);
 		return @com.mxgraph.gwt.client.util.WrapperUtils::wrap(Lcom/google/gwt/core/client/JavaScriptObject;)(pointJS);
 	}-*/;
@@ -1491,8 +1491,8 @@ public class mxGraph extends mxEventSource implements HasContextMenuHandlers
 	 */
 	public native mxICell getCellAt(int x, int y, mxICell parent, Boolean vertices, Boolean edges) /*-{
 		var parentJS = @com.mxgraph.gwt.client.util.WrapperUtils::unwrap(Lcom/mxgraph/gwt/client/IJavaScriptWrapper;)(parent);
-		var verticesJS = vertices != null ? vertices.@java.lang.Boolean::booleanValue() : null;
-		var edgesJS = edges != null ? edges.@java.lang.Boolean::booleanValue() : null;
+		var verticesJS = vertices != null ? vertices.@java.lang.Boolean::booleanValue()() : null;
+		var edgesJS = edges != null ? edges.@java.lang.Boolean::booleanValue()() : null;
 
 		return @com.mxgraph.gwt.client.util.WrapperUtils::wrap(Lcom/google/gwt/core/client/JavaScriptObject;)(@com.mxgraph.gwt.client.util.WrapperUtils::unwrap(Lcom/mxgraph/gwt/client/IJavaScriptWrapper;)(this).getCellAt(x, y, parentJS, verticesJS, edgesJS));
 	}-*/;
@@ -1812,7 +1812,7 @@ public class mxGraph extends mxEventSource implements HasContextMenuHandlers
 	public native List<mxICell> getEdgesBetween(mxICell source, mxICell target, Boolean directed) /*-{
 		var sourceJS = @com.mxgraph.gwt.client.util.WrapperUtils::unwrap(Lcom/mxgraph/gwt/client/IJavaScriptWrapper;)(source);
 		var targetJS = @com.mxgraph.gwt.client.util.WrapperUtils::unwrap(Lcom/mxgraph/gwt/client/IJavaScriptWrapper;)(target);
-		var directedJS = directed != null ? directed.@java.lang.Boolean::booleanValue() : null;
+		var directedJS = directed != null ? directed.@java.lang.Boolean::booleanValue()() : null;
 		var edgesJS = @com.mxgraph.gwt.client.util.WrapperUtils::unwrap(Lcom/mxgraph/gwt/client/IJavaScriptWrapper;)(this).getEdgesBetween(sourceJS, targetJS,
 				directedJS);
 		return @com.mxgraph.gwt.client.util.WrapperUtils::wrapList(Lcom/google/gwt/core/client/JavaScriptObject;)(edgesJS);
@@ -2035,6 +2035,14 @@ public class mxGraph extends mxEventSource implements HasContextMenuHandlers
 	 */
 	public native boolean isExtendParentsOnAdd() /*-{
 		return @com.mxgraph.gwt.client.util.WrapperUtils::unwrap(Lcom/mxgraph/gwt/client/IJavaScriptWrapper;)(this).isExtendParentsOnAdd();
+	}-*/;
+	
+	public native List<mxICell> foldCells(boolean collapse, Boolean recurse, List<mxICell> cells, Boolean checkFoldable) /*-{
+		var cellsJS = @com.mxgraph.gwt.client.util.WrapperUtils::unwrapList(Ljava/util/List;)(cells);
+		var recurseJS = recurse != null ? recurse.@java.lang.Boolean::booleanValue()() : null;
+		var checkFoldableJS = checkFoldable != null ? checkFoldable.@java.lang.Boolean::booleanValue()() : null;
+		var list = @com.mxgraph.gwt.client.util.WrapperUtils::unwrap(Lcom/mxgraph/gwt/client/IJavaScriptWrapper;)(this).foldCells(collapse, recurseJS, cellsJS, checkFoldableJS);
+		return @com.mxgraph.gwt.client.util.WrapperUtils::wrapList(Lcom/google/gwt/core/client/JavaScriptObject;)(list); 
 	}-*/;
 
 }
